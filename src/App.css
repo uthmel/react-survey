@@ -150,7 +150,9 @@ h2 {
 }
 
 .form__group.radio label:hover {
-  background-color: white;
+  background-color: blue;
+  color: white;
+  
 }
 
 .form__group input {
@@ -196,3 +198,6 @@ h2 {
 .form__submit:hover {
   background-color: white;
 }
+
+
+

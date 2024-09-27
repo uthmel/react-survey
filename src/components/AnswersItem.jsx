@@ -11,8 +11,8 @@ const answersSet = {
 function ItemsList({ list }) {
   return (
     <ul>
-      {list.map((item) => (
-        <li>{answersSet[item]}</li>
+      {list.map((item, index) => (
+        <li key={index}>{answersSet[item] || item}</li>
       ))}
     </ul>
   );
@@ -22,12 +22,29 @@ function ItemsList({ list }) {
 export default function AnswersItem({
   // Feel free to change this props names to what suits you best
   // Rememeber here we're destructuring answerItem, which is the prop name that we've passed
-  answerItem: { username, colour, timeSpent, review }
+  // eslint-disable-next-line react/prop-types
+  answerItem: { username, bestFeature, worstFeature, consistency, logo, colour,  timeSpent, review }
 }) {
   return (
     <li>
       <article className="answer">
         <h3>{username || "Anon"} said:</h3>
+        <p>
+          <em>What would you say are the best features of your rubber duck?</em>
+          <span className="answer__line">{bestFeature}</span>
+        </p>
+        <p>
+          <em>What would you say are the worst features of your rubber duck?</em>
+          <span className="answer__line">{worstFeature}</span>
+        </p>
+        <p>
+          <em>How do you rate your rubber duck consistency?</em>
+          <span className="answer__line">{consistency}</span>
+        </p>
+        <p>
+          <em>How do you rate your rubber duck logo?</em>
+          <span className="answer__line">{logo}</span>
+        </p>
         <p>
           <em>How do you rate your rubber duck colour?</em>
           <span className="answer__line">{colour}</span>
@@ -42,5 +59,5 @@ export default function AnswersItem({
         </p>
       </article>
     </li>
-  );
+  )
 }
